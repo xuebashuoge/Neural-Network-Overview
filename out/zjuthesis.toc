@@ -1,0 +1,30 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\contentsline {section}{\numberline {1}Introduction}{1}{section.0.0.1}% 
+\contentsline {section}{\numberline {2}Neural Network}{2}{section.0.0.2}% 
+\contentsline {subsection}{\numberline {2.1}Neuron}{2}{subsection.0.0.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Architecture}{3}{subsection.0.0.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Loss Function}{5}{subsection.0.0.2.3}% 
+\contentsline {subsection}{\numberline {2.4}Gradient Descent}{6}{subsection.0.0.2.4}% 
+\contentsline {subsubsection}{\numberline {2.4.1}Basic Intuition of GD}{6}{subsubsection.0.0.2.4.1}% 
+\contentsline {subsubsection}{\numberline {2.4.2}Basic Convergence Analysis of GD}{6}{subsubsection.0.0.2.4.2}% 
+\contentsline {subsection}{\numberline {2.5}Forward Propagation}{6}{subsection.0.0.2.5}% 
+\contentsline {subsection}{\numberline {2.6}Backward Propagation}{7}{subsection.0.0.2.6}% 
+\contentsline {section}{\numberline {3}Problem in Neural Network}{8}{section.0.0.3}% 
+\contentsline {subsection}{\numberline {3.1}vanishing and exploding}{8}{subsection.0.0.3.1}% 
+\contentsline {subsection}{\numberline {3.2}plateau, local minima and saddle point}{8}{subsection.0.0.3.2}% 
+\contentsline {subsection}{\numberline {3.3}learning rate}{8}{subsection.0.0.3.3}% 
+\contentsline {section}{\numberline {4}Tricks in Neural Network}{8}{section.0.0.4}% 
+\contentsline {subsection}{\numberline {4.1}General Training Algorithm}{8}{subsection.0.0.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Gradient descend variants}{8}{subsection.0.0.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Optimization Algorithms}{8}{subsection.0.0.4.3}% 
+\contentsline {section}{\numberline {5}Main Questions in Neural Network Theory}{8}{section.0.0.5}% 
+\contentsline {section}{\numberline {6}Overleaf 使用注意事项}{8}{section.0.0.6}% 
+\contentsline {subsection}{\numberline {6.1}节标题}{9}{subsection.0.0.6.1}% 
+\contentsline {subsubsection}{\numberline {6.1.1}小节标题}{9}{subsubsection.0.0.6.1.1}% 
+\contentsline {chapter}{\numberline {Chapter\nobreakspace {}1.\hspace {.3em}}关于本模板}{11}{chapter.0.1}% 
+\contentsline {section}{\numberline {1}Overleaf 使用注意事项}{11}{section.0.1.1}% 
+\contentsline {section}{\numberline {2}节标题}{12}{section.0.1.2}% 
+\contentsline {subsection}{\numberline {2.1}小节标题}{12}{subsection.0.1.2.1}% 
+\contentsline {chapter}{\numberline {Chapter\nobreakspace {}2.\hspace {.3em}}另一章}{14}{chapter.0.2}% 
+\contentsline {section}{\numberline {1}Reference}{15}{section.0.2.1}% 
+\contentsline {section}{\numberline {2}Reference}{16}{section.0.2.2}% 

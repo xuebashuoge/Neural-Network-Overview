@@ -1,0 +1,77 @@
+% Zhejiang University Graduation Thesis/Design Template
+% Author    : Zixuan Wang
+% Email     : zxwang42 [at] gmail.com
+% Update    : https://github.com/TheNetAdmin/zjuthesis/releases
+% Chat Room : https://gitter.im/zjuthesis/community
+% Document  : https://thenetadmin.github.io/zjuthesis
+
+\documentclass[
+    StudentName     = He Yangshuo,
+    StudentID       = 3180102687,
+    AdvisorName     = Yu Guanding,
+    Grade           = 2018,            % only the year, no '级'
+    Major           = Information Engineering,
+    Department      = ISEE,
+    Title           = Neural Network Overview,
+    SubmitDate      = 2020.2.20,
+    MajorFormat     = isee,
+    Degree          = undergraduate,   % 'undergraduate' or 'graduate'
+    Type            = thesis,          % 'thesis'   or 'design'
+    Period          = final,           % 'proposal' or 'final'
+    BlindReview     = false,           % 'false'    or 'true'
+    Language        = english,         % 'chinese'  or 'english'
+    % Below only for 'graduate'
+    GradLevel       = master,          % 'master' or 'doctor'
+    Topic           = 研究方向,
+    ColaboratorName = 合作导师,
+    TitleEng        = {{Graduation Thesis Title}}
+]{./config/zjuthesis}
+
+
+\newcommand{\inputundergraduate}
+{
+
+    % Final thesis
+    % Final part
+    \newcommand{\undergradcurrstage}{final}
+    \newrefsection
+        
+    \coverstyle
+    \inputpage{final/cover}
+
+    \prevstyle
+    \inputpage{final/previous}
+    \inputpage{final/toc}
+
+    \bodystyle
+    \inputbody{final/content}
+
+    \poststyle
+    \inputpage{final/post}
+
+}
+
+
+
+\begin{document}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{conj}{Conjecture}
+\newtheorem{exmp}{Example}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{pro}{Proposition}
+\newtheorem{lem}{Lemma}
+\newtheorem{asm}{Assumption}
+\newtheorem{cor}{Corollary}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{prf}{Proof}
+
+\inputundergraduate{}
+
+\end{document}

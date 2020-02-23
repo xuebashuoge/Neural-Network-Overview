@@ -1,0 +1,67 @@
+\ifthenelse{\equal{\Language}{english}}
+{
+    % English template format
+    \ctexset
+    {
+        chapter =
+        {
+            format=\centering\zihao{-3}\bfseries,
+            name={Chapter~, .},
+            number=\arabic{chapter},
+            beforeskip=12pt,
+            afterskip=6pt
+        },
+        figurename    = {Figure},
+        tablename     = {Table},
+        abstractname  = {Abstract},
+        appendixname  = {Appendix},
+        proofname     = {Proof}
+    }
+
+    \renewcommand{\contentsname}    {List of Contents}
+    \renewcommand{\listfigurename}  {List of Figures}
+    \renewcommand{\listtablename}   {List of Tables}
+    \addtolength{\cftfignumwidth}{1em}
+    \addtolength{\cfttabnumwidth}{1em}
+
+    \renewcommand{\chapternonum}[1]
+    {
+        \phantomsection
+        \addcontentsline{toc}{chapter}{#1}
+        \markboth{#1}{#1}
+        \chapter*{#1}
+    }
+
+
+    \def\equationautorefname        {Equation}
+    \def\footnoteautorefname        {Footnote}
+    \def\figureautorefname          {Figure}
+    \def\tableautorefname           {Table}
+    \def\partautorefname            {Part}
+    \def\chapterautorefname         {Chapter}
+    \def\sectionautorefname         {Section}
+    \def\subsectionautorefname      {Subsection}
+    \def\subsubsectionautorefname   {Subsubsection}
+    \def\paragraphautorefname       {Paragraph}
+    \def\subparagraphautorefname    {Subparagraph}
+    \def\appendixautorefname        {Appendix}
+    \def\FancyVerbLineautorefname   {Line}
+    \def\theoremautorefname         {Theorem}
+    \def\listoffigures              {Code}
+    \def\lstlistingname             {Code}
+    \def\defnautorefname            {Definition}     
+    \def\conjautorefname            {Conjecture}     
+    \def\exmpautorefname            {Example}     
+    \def\thmautorefname             {Theorem} 
+    \def\proautorefname             {Proposition} 
+    \def\lemautorefname             {Lemma} 
+    \def\asmautorefname             {Assumption} 
+    \def\corautorefname             {Corollary} 
+    \def\remautorefname             {Remark} 
+    \def\noteautorefname            {Note}     
+    \def\prfautorefname             {Proof} 
+    \def\algorithmautorefname       {Algorithm}
+}
+{
+
+}

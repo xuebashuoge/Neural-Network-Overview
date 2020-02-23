@@ -1,0 +1,76 @@
+\newpage
+\sectionnonum{Appendix}
+
+\begin{appendices}
+    
+
+
+\section{Descent Lemma}
+\label{app:DL}
+\begin{lem}
+    Let $ f: \mathbb{R}^n \rightarrow R $ be continuous differentiable,
+    and $ x,\ y\in \mathbb{R}^n $. Suppose that:
+    \begin{equation}
+        \forall t \in [0,\ 1]\ \ \|\nabla f(x+t y)-\nabla f(x)\| \leq L t\|y\|
+    \end{equation}
+    where $ L $ is a scalar, then:
+    \begin{equation}
+        f(x+y) \leq f(x)+y^{T} \nabla f(x)+\frac{L}{2}\|y\|^{2}
+    \end{equation}
+\end{lem}
+
+\begin{prf}
+    Let $ g(t) = f(x+ty) $, then: \\
+\begin{align}
+    f(x+y)-f(x) & =g(1)-g(0) \\
+    &=\int_{0}^{1} \frac{d g}{d t}(t) d t \\
+    &=\int_{0}^{1} y^{T} \nabla f(x+t y) d t \\ 
+    & \leq \int_{0}^{1} y^{T} \nabla f(x) d t+\left|\int_{0}^{1} y^{T}(\nabla f(x+t y)-\nabla f(x)) d t\right| \\ 
+    & \leq \int_{0}^{1} y^{T} \nabla f(x) d t+\int_{0}^{1}\|y\| \cdot\|\nabla f(x+t y)-\nabla f(x)\| d t \\ 
+    & \leq y^{T} \nabla f(x)+\|y\| \int_{0}^{1} L t\|y\| d t \\ 
+    &=y^{T} \nabla f(x)+\frac{L}{2}\|y\|^{2} 
+\end{align}
+\end{prf}
+
+
+\section{PReLU}
+
+He et al. \parencite{he2015delving} first propose the variant 
+PReLU, The definition is:
+\begin{align}
+g\left(z_{j}\right)=\left\{\begin{array}{ll}{z_{j},} & {\text { if } z_{j}>0} \\ {a_{j} z_{j},} & {\text { if } z_{j} \leq 0}\end{array}\right.
+\end{align}
+or in a more compact form:
+\begin{equation}
+    g(z_j) = \max \left(0, z_{j}\right)+a_{j} \min \left(0, z_{j}\right)
+\end{equation}
+$ a_j $ is the coefficient that can be adaptively learnt,
+subscript $ j $ means the coefficient can vary on the 
+different channel in the same layer. Though the shape of 
+PReLU and Leaky ReLU (LReLU) look the same, PReLU drastically
+avoids the overfitting by introducing a few parameters. 
+In practice, if $ a_j $ is shared by the same layers the 
+performance will be better.
+
+\section{Numerous Zero-error Minimum}
+\begin{thm}
+    \label{thm:bezout}
+    Suppose $ \mathbb{F} $ is a field and polynomials 
+    $ P,\ Q\in \mathbb{F} $ have no common factor of degree $ d\geq 1 $
+    \footnote{A more frank expression is independent.}. Let 
+    $ Z(P,\ Q) = \{(x,\ y)\in \mathbb{F}^2|P(x,\ y) = Q(x,\ y)\} $.
+    Then the number of points is upper bounded by $ d(P)d(Q) $.
+\end{thm}
+Via Bezout theorem \autoref{thm:bezout}, we can obtain the upper bound of a system 
+with $l$ layers and $ N $ data: $ d^{lN} $, where $ d $ is the 
+degree of polynomial equations. In the language of neural networks,
+the number of zero points of cost functions is $ d^{lN} $. The theorem can
+not strictly apply to neural networks with ReLU. But experimental
+in Figure 2 in \parencite{poggio2017theory}
+results show the similar behavior of ReLU and polynomial approximation.
+Therefore, we give a proposition as follow:
+\begin{pro}
+    There are a large number of zero-error minimum.
+\end{pro}
+
+\end{appendices}
