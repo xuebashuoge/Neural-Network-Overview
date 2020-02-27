@@ -196,14 +196,14 @@ we unroll the vectorization in \autoref{equ:GD}, we can have:
 The variants take on different convergence speed and accuracy by choosing 
 different $ m $.
 
-\subsubsection{Batch Gradient Descent}
+\subsubsection{Batch Gradient Descent (BGD)}
 Batch gradient descent, computes the gradient for the whole data set, i.e. 
 $ m $ is the size of the data set $ M $. Despite the high accuracy resulted 
-from taking full advantage of data set, batch gradient descent failed to 
+from taking full advantage of data set, BGD failed to 
 manage the online algorithms due to the considerable training time.
 
 \subsubsection{Stochastic Gradient Descent (SGD)}
-In comparison to batch gradient descent, SGD is competent for computation
+In comparison to BGD, SGD is competent for computation
 new data on the fly. In each iteration, SGD updates the parameters using
 only one piece of data $ (x^{(i)},\ y^{(i)}) $, i.e. $ m = 1 $:
 \begin{equation}
@@ -219,22 +219,69 @@ for one sample does not guarantee the convergence to a minimum and a descent
 of cost in each iteration. It is therefore SGD suffers a severe fluctuation
 and may wander around the minimum.
 
-\subsubsection{Mini-batch Gradient Descent}
+\subsubsection{Mini-batch Gradient Descent (MGD)}
 \label{sssec:MiniBatch}
-To balance the merit of both Batch GD and SGD, mini-batch gradient descent
+To balance the merit of both BGD and SGD, mini-batch gradient descent
 choose an appropriate $ m = 2^k,\ k\in R^+ $. Usually, $ m $ will be chosen
-as 64, 128 and 256. Taking the best of both worlds, mini-batch gradient
+as 64, 128 and 256. Taking the best of both worlds, MGD
 descent has a fast and stable convergence.
 
-\begin{comment} 
-    \subsubsection{Comparison Between Variants}
-    To illustrate the different between batch GD, SGD and mini-batch GD, we 
-    implement a simple classification neural network. The data set is shown
-    in \autoref{fig:sample}. The implementation based on the numpy package
-    is attached in the \textbf{APPENDIX ADD HERE}.
-    The size of data set is $ M = 300 $, we set $ m = 300,\ 1,\ 
-    32 $ respectively for three variants.   
-\end{comment}
+
+\subsubsection{Comparison Between Variants}
+To illustrate the different between batch BGD, SGD and MGD, we 
+implement a multi-classification neural network based on the tensorflow 
+framework. The architecture 
+of deep neural network with two hidden layers using ReLU and the output 
+layer using Softmax, Adam optimization mentioned in \autoref{sssec:Adam} 
+is applied to pursue better convergence. Due to the limitation of the 
+old version of tensorflow, only Xavier initialization is available.
+The code attached in the \" /code/test.py \".
+The size of data set is $ M = 1080 $, we set $ m = 1080,\ 1,\ 
+64 $ respectively for three variants. The results are shown in the following
+, see \autoref{fig:BGD_cost},\autoref{fig:BGD},\autoref{fig:SGD_cost},\autoref{fig:SGD},\autoref{fig:MGD_cost},\autoref{fig:MGD}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{BGD_cost}
+    \caption{\label{fig:BGD_cost}The loss of BGD during training}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=5cm]{BGD}
+    \caption{\label{fig:BGD}The result of training}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{SGD_cost}
+    \caption{\label{fig:SGD_cost}The loss of SGD during training}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=5cm]{SGD}
+    \caption{\label{fig:SGD}The result of training}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{MGD_cost}
+    \caption{\label{fig:MGD_cost}The loss of MGD during training}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=5cm]{MGD}
+    \caption{\label{fig:MGD}The result of training}
+\end{figure}
+
+\par Unfortunately, under the testing condition, SGD did not converge but stuck
+in some kind of local minimum or saddle point. Comparing MGD and BGD, to 
+achieve the same accuracy of 99\%, MGD is much more faster but some glitches 
+can be observed in the cost, which means MGD dose not guarantee descent in each
+iteration like SGD. In all, the simple comparison roughly demonstrate the advantage 
+of MGD in the optimization process.
 
 
 \subsection{Optimization Algorithms}
@@ -460,6 +507,7 @@ the numerator should take the identical form:
 \end{equation}
 
 \subsubsection{Adam}
+\label{sssec:Adam}
 The name of Adam comes from adaptive moment estimation in Kingma et al. \parencite{kingma2014adam}
 It is a memory saving and easy to compute optimization method combining 
 both the advantages of RMSprop and momentum. The pseudo code of Adam is 
