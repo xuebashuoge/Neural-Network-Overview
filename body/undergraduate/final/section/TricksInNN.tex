@@ -180,6 +180,37 @@ Though the explanation of why LSUV outperform other initialization methods is
 not given in the article, a series of comparison empirically show its advantage
 in neural networks initialization problem.
 
+\subsubsection{Comparison between initialization}
+We implemented a simple CNN model based on keras to examine
+the performance of random, xavier and he initialization. 
+The model trained the MNIST data set \parencite{mnist} to 
+classify the handwriting of Arabic numbers. The CNN model 
+is constructed with two convolution layers, two max pooling
+layers and two fully connected layers. Activations use ReLU
+and the output layer uses Softmax. Due to the limitation of 
+the version of keras and time limit, LSUV is not implemented.
+The code is attached in the "/code/initialize.py". The size 
+of data set is $ M = 60000 $, we set $ m = 64 $. The results
+are demonstrated in \autoref{fig:init_cost} and \autoref{fig:init_acc}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{init_cost}
+    \caption{\label{fig:init_cost}The loss in training of different initialization
+    methods, only random initialization corresponds to the right y axis}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{init_acc}
+    \caption{\label{fig:init_acc}The loss and accuracy on test set 
+    of different initialization methods}
+\end{figure}
+
+\par Surprisingly, CNN using random initialization did not 
+converge and did not learn after the second epoch. Others have
+a great convergence, he initialization is a bit faster than the 
+rests since it is tailored for ReLU.  
 
 \subsection{Gradient Descend Variants}
 There are two variants of GD improving the training efficiency. In brevity,
@@ -235,7 +266,7 @@ of deep neural network with two hidden layers using ReLU and the output
 layer using Softmax, Adam optimization mentioned in \autoref{sssec:Adam} 
 is applied to pursue better convergence. Due to the limitation of the 
 old version of tensorflow, only Xavier initialization is available.
-The code attached in the \" /code/test.py \".
+The code attached in the " /code/test.py ".
 The size of data set is $ M = 1080 $, we set $ m = 1080,\ 1,\ 
 64 $ respectively for three variants. The results are shown in the following
 , see \autoref{fig:BGD_cost},\autoref{fig:BGD},\autoref{fig:SGD_cost},\autoref{fig:SGD},\autoref{fig:MGD_cost},\autoref{fig:MGD}.
